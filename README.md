@@ -7,6 +7,7 @@
 
 # Setup
 - `bin/setup`
+- docker-compose up (build image and create postgresql database container)
 
 # Heroku
 - deploy -> git push heroku main
