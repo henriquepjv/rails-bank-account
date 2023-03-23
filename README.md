@@ -7,3 +7,7 @@
 
 # Setup
 - `bin/setup`
+
+# Heroku
+- deploy -> git push heroku main
+- migrate -> heroku run rake db:migrate
