@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboard#show'
 
   resources :users
+  resources :bank_accounts
 
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"

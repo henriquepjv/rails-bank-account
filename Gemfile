@@ -45,6 +45,11 @@ gem 'omniauth-auth0', '~> 3.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
 gem 'auth0'
 
+gem "tailwindcss-rails"
+gem "rails_heroicon"
+gem "simple_form"
+gem "simple_form-tailwind"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

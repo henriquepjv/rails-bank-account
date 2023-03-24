@@ -1,11 +1,26 @@
-<section>
-  <h1>Welcome, <%= @user.name %></h1>
+<section class="container mx-auto">
+  <h1 class='text-center'>Welcome, <%= @user.name %></h1>
 </section>
-<section>
-  <div class="">
-    <div class="">Normalized User Profile</div>
-    <div class="">
-      <pre><%= JSON.pretty_generate(@user) %></pre>
+<section class="container mx-auto">
+  <div>
+    <div class="text-left">Logged User Profile</div>
+    <div class="block text-left">
+      <pre><%= JSON.pretty_generate(@user_info) %></pre>
     </div>
   </div>
+  <div class="block text-left py-5">
+    <%= button_to 'Create Bank Account', new_bank_account_path, method: :get, class: "text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" unless session[:userinfo].present? %>
+  </div>
+
+  <h1 class='text-left py-8'>List of bank accounts</h1>
+
+  <% @bank_accounts.each do |bank_account| %>
+    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Bank account -> id <%= bank_account.id %></h5>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Bank number: <%= bank_account.bank_number %></p>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Agency number: <%= bank_account.agency_number %></p>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Account number: <%= bank_account.account_number %></p>
+      <p class="font-normal text-gray-700 dark:text-gray-400">Balance: <%= bank_account.current_balance %></p>
+    </a>
+  <% end %>
 </section>
