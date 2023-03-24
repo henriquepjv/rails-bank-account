@@ -28,7 +28,7 @@ class Auth0Controller < ApplicationController
     # puts session[:userinfo]
 
     # Redirect to the URL you want after successful auth
-    redirect_to "/"
+    redirect_to dashboard_path
   end
 
   def failure

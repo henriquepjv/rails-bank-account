@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
+  root 'home#show'
+  get '/dashboard' => 'dashboard#show'
+
+  resources :users
+
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
   get "/logout" => "auth0#logout"
-
-  root "dashboard#index"
-
-  post '/login', to: 'dashboard#login', as: 'login'
-
-  resources :users
 
   namespace :api do
     namespace :v1 do

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
 class DashboardController < ApplicationController
-  def index; end
+  include Secured
+
+  def show
+    @user = session[:user_info]
+  end
 end
