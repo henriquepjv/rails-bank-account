@@ -27,6 +27,7 @@ http://127.0.0.1:3000/api/v1/user
 }
 ```
 <br>
+
 - Create Bank Account
 http://127.0.0.1:3000/api/v1/bank_account
 ```json
@@ -38,6 +39,7 @@ http://127.0.0.1:3000/api/v1/bank_account
 }
 ```
 <br>
+
 - Credit
 http://127.0.0.1:3000/api/v1/credit
 ```json
@@ -49,6 +51,7 @@ http://127.0.0.1:3000/api/v1/credit
 }
 ```
 <br>
+
 - Debit
 http://127.0.0.1:3000/api/v1/debit
 ```json
