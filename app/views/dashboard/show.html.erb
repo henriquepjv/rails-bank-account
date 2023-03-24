@@ -1,11 +1,14 @@
-<section class="container mx-auto">
-  <h1 class='text-center'>Welcome, <%= @user.name %></h1>
+<section class="grid grid-cols-1 gap-4">
 </section>
-<section class="container mx-auto">
+
+<section class="grid grid-cols-1 gap-4">
+  <div class="">
+    <h1 class='text-center'>Welcome, <%= @user.name %></h1>
+  </div>
   <div>
     <div class="text-left">Logged User Profile</div>
-    <div class="block text-left">
-      <pre><%= JSON.pretty_generate(@user_info) %></pre>
+    <div class="text-left border-solid border-2">
+      <pre class='break-words'><%= JSON.pretty_generate(@user_info) %></pre>
     </div>
   </div>
   <div class="block text-left py-5">
