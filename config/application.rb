@@ -7,6 +7,7 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 require "./lib/omniauth/strategies/httpbasic"
+require "./lib/omniauth/strategies/gia"
 #require "./lib/gia_strategy"
 
 module BankAccountApp

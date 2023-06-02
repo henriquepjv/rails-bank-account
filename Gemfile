@@ -43,6 +43,7 @@ gem 'activerecord-session_store'
 
 gem 'omniauth'
 gem "omniauth-rails_csrf_protection"
+gem "omniauth-oauth2"
 
 gem "tailwindcss-rails"
 gem "rails_heroicon"
