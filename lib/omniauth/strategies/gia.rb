@@ -11,7 +11,7 @@ module OmniAuth
         #token_url: "/oauth/token",
         #authorize_url: "/oauth/authorize",
         authorize_url: "/login",
-        site: "https://console.iugu.test"
+        site: Rails.env.production? ? "https://console.iugu.com" : "https://console.iugu.test"
       }
 
       uid { info['id'] }
