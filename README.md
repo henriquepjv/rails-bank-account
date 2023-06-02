@@ -1,4 +1,5 @@
 # rails-bank-account
+- This is a simple bank account app to test Omniauth framework and Oauth2.0
 
 # Stack
 - Ruby 3.1.1
