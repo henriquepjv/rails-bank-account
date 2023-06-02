@@ -14,7 +14,7 @@
 # Problems with setup
 - Error when installing PG gem
 ```
-sudo apt install libpq-dev
+gem install pg -- --with-pg-config=/usr/local/Cellar/libpq/15.3/bin/pg_config -v 1.4.6
 ```
 
 - Error related to postgres with rails console
