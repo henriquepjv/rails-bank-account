@@ -11,6 +11,17 @@
 - docker-compose up (build image and create postgresql database container)
 - gem install foreman (run rails s with tailwind)
 
+# Problems with setup
+- Error when installing PG gem
+```
+sudo apt install libpq-dev
+```
+
+- Error related to postgres with rails console
+```
+brew install libpq postgresql@14
+```
+
 # Heroku
 - deploy -> git push heroku main
 - migrate -> heroku run rake db:migrate
