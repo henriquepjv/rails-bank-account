@@ -3,4 +3,8 @@
 <%= link_to 'New user', new_user_path %>
 
 
-<%= button_to 'Login', '/auth/auth0', method: :post %>
+<%= button_to 'Login Auth0', '/auth/auth0', method: :post %>
+
+<%= form_tag('/auth/developer', method: 'post', data: {turbo: false}) do %>
+  <button type='submit'>Login with Developer</button>
+<% end %>

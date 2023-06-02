@@ -41,9 +41,8 @@ gem "bootsnap", require: false
 
 gem 'activerecord-session_store'
 
-gem 'omniauth-auth0', '~> 3.0'
-gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
-gem 'auth0'
+gem 'omniauth'
+gem "omniauth-rails_csrf_protection"
 
 gem "tailwindcss-rails"
 gem "rails_heroicon"
