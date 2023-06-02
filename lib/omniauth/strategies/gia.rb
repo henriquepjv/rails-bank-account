@@ -15,6 +15,11 @@ module OmniAuth
       }
 
       uid { info['id'] }
+
+      def callback_url
+        # check why gia dont redirect to this url
+        'http://localhost:3000/auth/gia/callback'
+      end
     end
   end
 end
