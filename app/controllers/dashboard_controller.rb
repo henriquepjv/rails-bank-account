@@ -4,8 +4,9 @@ class DashboardController < ApplicationController
   include Secured
 
   def show
-    @user_info = session[:user_info]
-    @user = User.find_by(auth: session.dig('user_info', 'sub'))
-    @bank_accounts = @user.bank_accounts
+    @workspace_id = session[:workspace_id]
+    @workspace_name = session[:workspace_name]
+    @access_token = session[:access_token]
+    @access_token_jwt = session[:access_token_jwt]
   end
 end

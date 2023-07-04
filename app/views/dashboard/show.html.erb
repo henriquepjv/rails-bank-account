@@ -3,12 +3,14 @@
 
 <section class="grid grid-cols-1 gap-4">
   <div class="">
-    <h1 class='text-center'>Welcome, <%= @user.name %></h1>
+    <h1 class='text-center'>Workspace id, <%= @workspace_id %></h1>
+    <h1 class='text-center'>Workspace name, <%= @workspace_name %></h1>
   </div>
   <div>
     <div class="text-left">Logged User Profile</div>
     <div class="text-left border-solid border-2">
-      <pre class='break-words'><%= JSON.pretty_generate(@user_info) %></pre>
+      <pre class='break-words'><%= JSON.pretty_generate(@access_token) %></pre>
+      <pre class='break-words'><%= JSON.pretty_generate(@access_token_jwt) %></pre>
     </div>
   </div>
   <div class="block text-left py-5">
@@ -16,14 +18,4 @@
   </div>
 
   <h1 class='text-left py-8'>List of bank accounts</h1>
-
-  <% @bank_accounts.each do |bank_account| %>
-    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Bank account -> id <%= bank_account.id %></h5>
-      <p class="font-normal text-gray-700 dark:text-gray-400">Bank number: <%= bank_account.bank_number %></p>
-      <p class="font-normal text-gray-700 dark:text-gray-400">Agency number: <%= bank_account.agency_number %></p>
-      <p class="font-normal text-gray-700 dark:text-gray-400">Account number: <%= bank_account.account_number %></p>
-      <p class="font-normal text-gray-700 dark:text-gray-400">Balance: <%= bank_account.current_balance %></p>
-    </a>
-  <% end %>
 </section>

@@ -8,17 +8,17 @@ module OmniAuth
       option :name, 'gia'
 
       option :client_options, {
-        #token_url: "/oauth/token",
-        #authorize_url: "/oauth/authorize",
-        authorize_url: "/login",
-        site: Rails.env.production? ? "https://console.iugu.com" : "https://console.iugu.test"
+        authorize_url: "/authorize",
+        #site: Rails.env.production? ? "https://identity.iugu.com" : "https://identity.iugu.test"
+        site: "https://identity.iugu.com"
+        #site: "https://identity.iugu.test"
       }
 
       uid { info['id'] }
 
       def callback_url
-        # check why gia dont redirect to this url
-        'http://localhost:3000/auth/gia/callback'
+        # sets the redirect callback url
+        'http://localhost:3000/oauth2/callback'
       end
     end
   end

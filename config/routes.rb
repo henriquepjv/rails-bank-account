@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :bank_accounts
 
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'oauth2/callback', to: 'authentication#callback'
   get '/login', to: 'sessions#new'
 
   namespace :api do

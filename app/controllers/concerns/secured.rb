@@ -6,6 +6,6 @@ module Secured
   end
 
   def logged_in_using_omniauth?
-    redirect_to '/' unless session[:user_info].present?
+    redirect_to '/' unless session[:workspace_id].present?
   end
 end
