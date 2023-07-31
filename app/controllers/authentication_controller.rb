@@ -6,11 +6,11 @@ class AuthenticationController < ApplicationController
     identity = decode_jwt(access["id_token"], jwks)
     access_token = decode_jwt(access.token, jwks)
 
-    #workspaces = JSON.parse(access.get("http://api.console.iugu.test:443/workspaces").body)
-    workspaces = JSON.parse(access.get("https://api.console.iugu.com/workspaces").body)
+    #workspaces = JSON.parse(access.get("https://api.console.iugu.test:443/workspaces").body)
+    #workspaces = JSON.parse(access.get("https://api.console.iugu.com/workspaces").body)
 
-    session[:workspace_id] = workspaces["current"]
-    session[:workspace_name] = workspaces["workspaces"].select { |d| d["id"] == workspaces["current"] }.first["name"]
+    #session[:workspace_id] = workspaces["current"]
+    #session[:workspace_name] = workspaces["workspaces"].select { |d| d["id"] == workspaces["current"] }.first["name"]
     session[:access_token] = access.token
     session[:access_token_jwt] = access_token
     session[:identity] = identity
@@ -29,12 +29,12 @@ class AuthenticationController < ApplicationController
 
   def oauth2_client
     client = OAuth2::Client.new(
-      '6ytGxOU0hwx9HsRAK2xja0',
-      '2e4784bd3c003cf4a908243af06df41eed9dcdfa1c53ecf7d32d2ce6292b5a2cef47807f',
-      site: 'https://identity.iugu.com',
-      #'26Yo6tyiKc8VuxjsnItbjT',
-      #'9e4c1df585f3de8e1f8c2b2f4fd8df202c95cd716a9ba64f8c17817c7f6bcbaf97203c0b',
-      #site: 'https://identity.iugu.test',
+      #'6ytGxOU0hwx9HsRAK2xja0',
+      #'2e4784bd3c003cf4a908243af06df41eed9dcdfa1c53ecf7d32d2ce6292b5a2cef47807f',
+      #site: 'https://identity.iugu.com',
+      '0qjf45e60A0rbDsaCdtTkJ',
+      '73518d0e37e68b428696305c8df6b29f53b17915dce55859484ff41d94e1c89dbf9e86de',
+      site: 'https://identity.iugu.test',
       redirect_uri: 'http://localhost:3000/oauth2/callback',
       authorize_url: '/authorize',
       token_url: '/token'
@@ -42,8 +42,8 @@ class AuthenticationController < ApplicationController
   end
 
   def get_jwks
-    jwks_uri = URI("https://identity.iugu.com/.well-known/jwks.json")
-    #jwks_uri = URI("https://identity.iugu.test/.well-known/jwks.json")
+    #jwks_uri = URI("https://identity.iugu.com/.well-known/jwks.json")
+    jwks_uri = URI("https://identity.iugu.test/.well-known/jwks.json")
     Net::HTTP.get_response jwks_uri
   end
 
@@ -61,11 +61,11 @@ class AuthenticationController < ApplicationController
   def decode_jwt(token, jwks_hash)
     JWT.decode(token, nil, true, {
                  algorithm:  "RS256",
-                 iss:        "https://identity.iugu.com/",
-                 #iss:        "https://identity.iugu.test/",
+                 #iss:        "https://identity.iugu.com/",
+                 iss:        "https://identity.iugu.test/",
                  verify_iss: true,
-                 aud:        ["Iugu.Platform.6ytGxOU0hwx9HsRAK2xja0"],
-                 #aud:        ["Iugu.Platform.26Yo6tyiKc8VuxjsnItbjT"],
+                 #aud:        ["Iugu.Platform.6ytGxOU0hwx9HsRAK2xja0"],
+                 aud:        ["Iugu.Platform.0qjf45e60A0rbDsaCdtTkJ"],
                  verify_aud: true,
                  jwks:       { keys: jwks_hash[:keys] }
                })

@@ -10,8 +10,8 @@ module OmniAuth
       option :client_options, {
         authorize_url: "/authorize",
         #site: Rails.env.production? ? "https://identity.iugu.com" : "https://identity.iugu.test"
-        site: "https://identity.iugu.com"
-        #site: "https://identity.iugu.test"
+        #site: "https://identity.iugu.com"
+        site: "https://identity.iugu.test"
       }
 
       uid { info['id'] }
