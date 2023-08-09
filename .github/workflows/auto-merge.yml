@@ -1,0 +1,14 @@
+on:
+  pull_request:
+jobs:
+  auto_merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - run: |
+          git status
+          gh pr merge -m
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
