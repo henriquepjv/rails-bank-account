@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DashboardController < ApplicationController
-  include Secured
+  #include Secured
 
   def show
     @workspace_id = session[:workspace_id]

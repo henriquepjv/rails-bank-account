@@ -3,6 +3,7 @@ class AuthenticationController < ApplicationController
     redirect_host = request.protocol + request.host_with_port
     access = oauth2_client.auth_code.get_token(params[:code], redirect_uri: "#{redirect_host}/oauth2/callback")
 
+    binding.break
     identity = decode_jwt(access["id_token"], jwks)
     access_token = decode_jwt(access.token, jwks)
 
@@ -32,8 +33,8 @@ class AuthenticationController < ApplicationController
       #'6ytGxOU0hwx9HsRAK2xja0',
       #'2e4784bd3c003cf4a908243af06df41eed9dcdfa1c53ecf7d32d2ce6292b5a2cef47807f',
       #site: 'https://identity.iugu.com',
-      '0qjf45e60A0rbDsaCdtTkJ',
-      '73518d0e37e68b428696305c8df6b29f53b17915dce55859484ff41d94e1c89dbf9e86de',
+      '4XOIsWRimgMDqwyF4YoChZ',
+      '0a65a647f4b0a1e203fce45790995a1db4ad41155831496d82324bc978e0303a4e78a1ff',
       site: 'https://identity.iugu.test',
       redirect_uri: 'http://localhost:3000/oauth2/callback',
       authorize_url: '/authorize',
@@ -65,7 +66,7 @@ class AuthenticationController < ApplicationController
                  iss:        "https://identity.iugu.test/",
                  verify_iss: true,
                  #aud:        ["Iugu.Platform.6ytGxOU0hwx9HsRAK2xja0"],
-                 aud:        ["Iugu.Platform.0qjf45e60A0rbDsaCdtTkJ"],
+                 aud:        ["Iugu.Platform.4XOIsWRimgMDqwyF4YoChZ"],
                  verify_aud: true,
                  jwks:       { keys: jwks_hash[:keys] }
                })

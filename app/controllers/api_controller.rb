@@ -1,3 +1,3 @@
 class ApiController < ActionController::API
-  include Secured
+  #include Secured
 end
