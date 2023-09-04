@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'oauth2/callback', to: 'authentication#callback'
   get '/login', to: 'sessions#new'
+  get '/logout', to: 'authentication#logout', as: :logout
 
   namespace :api do
     namespace :v1 do
